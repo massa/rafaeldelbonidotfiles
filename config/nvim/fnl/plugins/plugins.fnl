@@ -10,6 +10,15 @@
          :extra {:above "<leader>cO"
                  :below "<leader>co"
                  :eol "<leader>cA"}}}
+ ; mason
+ {1 :williamboman/mason.nvim
+  :lazy false
+  :init (fn []
+          (let [mason (require :mason)] (mason.setup)))}
+ {1 :williamboman/mason-lspconfig.nvim
+  :lazy false
+  :init (fn []
+          (let [mason (require :mason-lspconfig)] (mason.setup)))}
 
  ; multicursor selector
  {1 :mg979/vim-visual-multi}

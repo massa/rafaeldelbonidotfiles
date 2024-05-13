@@ -13,4 +13,11 @@
 ;escape from terminal normal mode
 (nvim.set_keymap :t :<esc><esc> "<c-\\><c-n>" {:noremap true})
 
+(nvim.set_keymap :n :<F2> "<cmd>write<CR>" {:noremap true})
+(nvim.set_keymap :i :<F2> "<Esc><cmd>write<CR>" {:noremap true})
+(nvim.set_keymap :n :<F3> "<cmd>quitall<CR>" {:noremap true})
+(nvim.set_keymap :i :<F3> "<Esc><cmd>quitall<CR>" {:noremap true})
+(nvim.set_keymap :n :<F4> "<cmd>quit<CR>" {:noremap true})
+(nvim.set_keymap :i :<F4> "<Esc><cmd>quit<CR>" {:noremap true})
+
 {}

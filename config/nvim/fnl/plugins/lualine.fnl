@@ -25,7 +25,7 @@
   :config (fn []
             (let [lualine (require :lualine)]
               (lualine.setup
-                {:options {:theme "tokyonight"
+                {:options {:theme "catppuccin-mocha"
                            :icons_enabled true
                            :section_separators ["" ""]
                            :component_separators ["" ""]}
