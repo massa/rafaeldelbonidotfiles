@@ -6,25 +6,23 @@
          :opleader {:line :<leader>cc :block :<leader>cb}
          :extra {:above :<leader>cO :below :<leader>co :eol :<leader>cA}}}
  ; mason
- {1 :williamboman/mason.nvim
-  :lazy false
-  :init (fn []
-          (let [mason (require :mason)] (mason.setup)))}
+ {1 :williamboman/mason.nvim}
  {1 :williamboman/mason-lspconfig.nvim
   :dependencies [:williamboman/mason.nvim]
-  :lazy false
   :init (fn []
-          (let [mason-lspconfig (require :mason-lspconfig)]
+          (let [mason (require :mason)
+                mason-lspconfig (require :mason-lspconfig)]
+            (mason.setup)
             (mason-lspconfig.setup {:ensure_installed [:lua_ls
                                                        :rust_analyzer
                                                        :raku_navigator
                                                        :fennel_language_server]
                                     :automatic_installation true
-                                    :handlers {:1 (fn [server_name]
+                                    :handlers {}})
+            (mason-lspconfig.setup_handlers {1 (fn [server_name]
                                                     (let [lsp (require :lspconfig)
-                                                          server (: lsp server_name)]
-                                                      (server.setup {})))}})
-            (mason-lspconfig.setup_handlers {})))}
+                                                          server (. lsp server_name)]
+                                                      (server.setup {})))})))}
  ; multicursor selector
  {1 :mg979/vim-visual-multi}
  ; fennel indent
